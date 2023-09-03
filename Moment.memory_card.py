@@ -63,6 +63,8 @@ def setanswer():
 def showquestion():
     pass
 
+
+
 setanswer()
 def showResult():
     for i in range(4):
