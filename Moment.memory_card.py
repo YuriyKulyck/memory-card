@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 import random
 import base
+import menuwind
 
 app = QApplication([])
 window = QWidget()
@@ -59,6 +60,8 @@ def setanswer():
     answers[2].setText(base.quest[base.currencyque]["неправильне2"])
     answers[3].setText(base.quest[base.currencyque]["неправильне3"])
 
+def showquestion():
+    pass
 
 setanswer()
 def showResult():
@@ -74,6 +77,7 @@ def showResult():
 
 ansbut.clicked.connect(showResult)
 nextbut.clicked.connect(showResult)
+menubut.clicked.connect(menuwind.menuWind)
 
 window.setLayout(mainline)
 window.show()
