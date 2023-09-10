@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 import random
 import base
 import menuwind
+import editwind
 
 app = QApplication([])
 window = QWidget()
@@ -10,6 +11,7 @@ window.resize(400 , 400)
 mainline = QVBoxLayout()
 
 menubut = QPushButton('меню')
+editbut = QPushButton('Редагувати.')
 restbtn = QPushButton('Відпочити')
 timespn = QSpinBox()
 timlb = QLabel('хвилин')
@@ -50,6 +52,7 @@ answersgroup.setLayout(answerline)
 mainline.addWidget(answersgroup)
 mainline.addWidget(ansbut)
 mainline.addWidget(nextbut)
+mainline.addWidget(editbut)
 nextbut.hide()
 
 def setanswer():
@@ -61,9 +64,22 @@ def setanswer():
     answers[3].setText(base.quest[base.currencyque]["неправильне3"])
 
 def showquestion():
-    pass
+    random.shuffle(answers)
+    base.currencyque += 1
+    quetext.setText(base.quest[base.currencyque]["питання"])
+    answers[0].setText(base.quest[base.currencyque]["правильна відповідь"])
+    answers[1].setText(base.quest[base.currencyque]["неправильне1"])
+    answers[2].setText(base.quest[base.currencyque]["неправильне2"])
+    answers[3].setText(base.quest[base.currencyque]["неправильне3"])
+    for i in range(4):
+        answers[i].show()
 
+def editfunc():
+    window.hide()
+    editwind.editWindow()
+    window.show()
 
+    showquestion()
 
 setanswer()
 def showResult():
@@ -78,8 +94,9 @@ def showResult():
         result.setText("Яке пояснення поноса?")
 
 ansbut.clicked.connect(showResult)
-nextbut.clicked.connect(showResult)
+nextbut.clicked.connect(showquestion)
 menubut.clicked.connect(menuwind.menuWind)
+editbut.clicked.connect(editwind.editwindow)
 
 window.setLayout(mainline)
 window.show()

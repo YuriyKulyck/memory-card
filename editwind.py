@@ -1,13 +1,12 @@
 from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QLabel
 
 import base
 
-
-def menuWind():
+def editwindow():
     window = QDialog()
-    window.resize(350, 350)
-
-    addbut = QPushButton("Добавити.")
+    window.resize(380, 380)
+    editbut = QPushButton("Редагувати.")
 
     h1 = QHBoxLayout()
     questLbl = QLabel("Питання: ")
@@ -47,26 +46,22 @@ def menuWind():
     unrightanswerLbl3 = QLabel("неправильне3")
     queedit5 = QLineEdit()
 
-
     h5.addWidget(unrightanswerLbl3)
     h5.addWidget(queedit5)
     mainLine.addLayout(h5)
 
-
-    def addFunc():
-        base.quest.append(
-            {
+    def balalayka():
+        base.quest[base.currecyque] = {
             "питання": queedit.text(),
             "правильна відповідь": queedit2.text(),
             "неправильне1": queedit3.text(),
             "неправильне2": queedit4.text(),
             "неправильне3": queedit5.text(),
-            }
-        )
+        }
         window.close()
 
-    mainLine.addWidget(addbut)
-    addbut.clicked.connect(addFunc)
+    mainLine.addWidget(editbut)
+    editbut.clicked.connect(balalayka)
 
     window.setLayout(mainLine)
     window.show()
