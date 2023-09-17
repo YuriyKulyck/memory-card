@@ -5,6 +5,27 @@ import menuwind
 import editwind
 
 app = QApplication([])
+app.setStyleSheet("""
+    QWidget{
+        
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 red,stop: 1 indigo);
+    }
+    QPushButton{
+    border: 2px solid;
+    border-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 blue,stop: 1 violet);
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 yellow,stop: 1 violet);
+    }
+    QGroupBox{
+        background: rgb(113,0,35);
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 gray,stop: 1 green);
+    }
+    QRadioButton{
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 gold,stop: 1 blue);
+    }
+    Qlabel{
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 pink,stop: 1 green);
+    }
+""")
 window = QWidget()
 window.resize(400 , 400)
 
@@ -76,10 +97,10 @@ def showquestion():
 
 def editfunc():
     window.hide()
-    editwind.editWindow()
+    editwind.editwindow()
     window.show()
 
-    showquestion()
+    setanswer()
 
 setanswer()
 def showResult():
@@ -93,10 +114,13 @@ def showResult():
     else:
         result.setText("Яке пояснення поноса?")
 
+
+
+
 ansbut.clicked.connect(showResult)
 nextbut.clicked.connect(showquestion)
 menubut.clicked.connect(menuwind.menuWind)
-editbut.clicked.connect(editwind.editwindow)
+editbut.clicked.connect(editfunc)
 
 window.setLayout(mainline)
 window.show()

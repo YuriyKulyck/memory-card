@@ -51,7 +51,7 @@ def editwindow():
     mainLine.addLayout(h5)
 
     def balalayka():
-        base.quest[base.currecyque] = {
+        base.quest[base.currencyque] = {
             "питання": queedit.text(),
             "правильна відповідь": queedit2.text(),
             "неправильне1": queedit3.text(),
