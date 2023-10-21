@@ -16,14 +16,20 @@ app.setStyleSheet("""
         background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 yellow,stop: 1 violet);
     }
     QGroupBox{
+        border: 4px solid;
+        border-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 green,stop: 1 orange);
         background: rgb(113,0,35);
         background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 gray,stop: 1 green);
     }
     QRadioButton{
+        border: 5px solid;
+        border-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 yellow,stop: 1 lime);
         background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 gold,stop: 1 blue);
     }
     Qlabel{
-        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 pink,stop: 1 green);
+        border: 3px solid;
+        border-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 purple,stop: 1 green);
+        background:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 white, stop: 0.4 pink,stop: 1 gold);
     }
 """)
 window = QWidget()
